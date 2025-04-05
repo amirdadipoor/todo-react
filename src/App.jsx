@@ -19,6 +19,8 @@ import {
 import { ThemeConfig } from "flowbite-react";
 import ThemeToggle from "./components/themes/theme-toggle.jsx";
 import { useEffect } from 'react';
+import ConfirmModal from "./components/confirm-modal.jsx";
+import AppNavbar from "./components/app-navbar.jsx";
 //import {useState} from "react";
 //import Image from "next/image";
 
@@ -33,35 +35,9 @@ export default function App() {
 
     return (
         <>
-            {/*<ThemeConfig dark={theme} />*/}
-            {/*<Button>Click me</Button>*/}
-            {/*<App1 />*/}
-            {/*<TestModal />*/}
-
-            <Navbar fluid rounded>
-                <NavbarBrand href="https://flowbite-react.com">
-                    <img src={reactLogo} className="mr-3 h-6 sm:h-9" alt="Flowbite React Logo" />
-                    <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Flowbite React</span>
-                </NavbarBrand>
-                <div className="flex md:order-2">
-                    {/*<Button onClick={toggleSwitchTheme} >Get started</Button>*/}
-                    <ThemeToggle/>
-                    <NavbarToggle/>
-
-                </div>
-                <NavbarCollapse>
 
 
-
-                    <NavbarLink href="#" active>
-                        Home
-                    </NavbarLink>
-                    <NavbarLink href="#">About</NavbarLink>
-                    <NavbarLink href="#">Services</NavbarLink>
-                    <NavbarLink href="#">Pricing</NavbarLink>
-                    <NavbarLink href="#">Contact</NavbarLink>
-                </NavbarCollapse>
-            </Navbar>
+            <AppNavbar />
 
             <div className="flex justify-center items-center h-screen bg-gray-100 dark:bg-gray-900 antialiased">
                 <Card className="min-w-2/4">
@@ -118,7 +94,7 @@ export default function App() {
 
                 </Card>
             </div>
-
+            <ConfirmModal />
         </>
     );
 }
