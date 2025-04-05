@@ -41,7 +41,7 @@ export default function App() {
             <div className="flex justify-center items-center h-screen bg-gray-100 dark:bg-gray-900 antialiased">
                 <TaskList />
             </div>
-            <ConfirmModal />
+            {/*<ConfirmModal />*/}
         </>
     );
 }
