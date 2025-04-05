@@ -25,28 +25,7 @@ import { useEffect } from 'react';
 
 export default function App() {
 
-/*
-    const detectDefaultTheme = () => {
-        return window.matchMedia("(prefers-color-scheme: dark)").matches;
-    }
 
-    const [theme, setTheme] = useState(detectDefaultTheme)
-
-*/
-/*
-
-
-    const toggleSwitchTheme = () => {
-        console.log(theme)
-        setTheme(!theme);
-
-        document.documentElement.classList.toggle(
-            "dark",
-            localStorage.theme === "dark" ||
-            (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches),
-        );
-    }
-*/
     useEffect(() => {
         document.body.classList.add(...["bg-white","dark:bg-gray-900","antialiased"]) ;
         //document.body.classList.add("dark:bg-slate-900") ;
@@ -66,10 +45,14 @@ export default function App() {
                 </NavbarBrand>
                 <div className="flex md:order-2">
                     {/*<Button onClick={toggleSwitchTheme} >Get started</Button>*/}
-                    <ThemeToggle />
-                    <NavbarToggle />
+                    <ThemeToggle/>
+                    <NavbarToggle/>
+
                 </div>
                 <NavbarCollapse>
+
+
+
                     <NavbarLink href="#" active>
                         Home
                     </NavbarLink>
@@ -82,12 +65,16 @@ export default function App() {
 
             <div className="flex justify-center items-center h-screen bg-gray-100 dark:bg-gray-900 antialiased">
                 <Card className="min-w-2/4">
-                    <h5 className="text-xl text-center font-bold leading-none text-gray-900 dark:text-white">Latest Customers</h5>
+                    <h5 className="text-xl text-center font-bold leading-none text-gray-900 dark:text-white">Latest
+                        Customers</h5>
                     <div className="flex mb-4">
-                        <TextInput id="todo-input" type="text" placeholder="Add a new task" className=" pr-1 flex-1 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500" required />
+                        <TextInput id="todo-input" type="text" placeholder="Add a new task"
+                                   className=" pr-1 flex-1 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                   required/>
 
                         {/*<Button id="add-btn" className=" text-white px-4 py-2 rounded-r-md hover:bg-cyan-700 focus:outline-none focus:ring-4 focus:ring-cyan-200 dark:focus:ring-cyan-900">Add </Button>*/}
-                        <button type="button" className="justify-center rounded-lg bg-cyan-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-cyan-700 focus:outline-none focus:ring-4 focus:ring-cyan-200 dark:focus:ring-cyan-900"
+                        <button type="button"
+                                className="justify-center rounded-lg bg-cyan-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-cyan-700 focus:outline-none focus:ring-4 focus:ring-cyan-200 dark:focus:ring-cyan-900"
 >
                             Add Task
                         </button>
