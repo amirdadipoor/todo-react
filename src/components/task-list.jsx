@@ -1,9 +1,10 @@
 import {Card, TextInput} from "flowbite-react";
 import InputSection from "./input-section.jsx";
 import TaskItem from "./task-item.jsx";
-//import {loadTasksFromLocalStorage , storeTasksToLocalStorage} from "./../features/local-storage.jsx"
+import {loadTasksFromLocalStorage , storeTasksToLocalStorage} from "./../features/local-storage.jsx"
 
 export default function TaskList() {
+    //console.log(loadTasksFromLocalStorage())
     return (
         <Card className="min-w-2/4">
 

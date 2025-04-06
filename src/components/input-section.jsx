@@ -5,7 +5,23 @@ export default function InputSection() {
     const inputValueRef = useRef();
 
     const addNewTaskItem = () => {
-        console.log(inputValueRef.current.value);
+        let todoText = inputValueRef.current.value.trim() ;
+        if ((typeof todoText === "string" && todoText.length === 0) || todoText === null )  {
+            // show error to user Enter valid data
+            showInvalidTaskInputError();
+            return false;
+        }
+        saveAndShowNewTask(todoText);
+        inputValueRef.current.value = ''
+
+    }
+
+    const saveAndShowNewTask = (todoText) => {
+        console.log(todoText)
+    }
+
+    const showInvalidTaskInputError = ( ) => {
+        console.log( "Please enter valid task name & try again  !" )
     }
 
     return (
