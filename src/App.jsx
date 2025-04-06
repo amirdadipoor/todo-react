@@ -1,6 +1,6 @@
 //import { Button , ThemeConfig   } from "flowbite-react";
 
-import TestModal from "./components/test/TestModal.jsx";
+/*import TestModal from "./components/test/TestModal.jsx";
 import App1 from "./components/test/App1";
 import reactLogo from './assets/react.svg'
 import {
@@ -17,9 +17,9 @@ import {
     toggleSwitchTheme
 } from "flowbite-react";
 import { ThemeConfig } from "flowbite-react";
-import ThemeToggle from "./components/themes/theme-toggle.jsx";
+import ThemeToggle from "./components/themes/theme-toggle.jsx";*/
 import { useEffect } from 'react';
-import ConfirmModal from "./components/confirm-modal.jsx";
+//import ConfirmModal from "./components/confirm-modal.jsx";
 import AppNavbar from "./components/app-navbar.jsx";
 import TaskList from "./components/task-list.jsx";
 //import {useState} from "react";
@@ -29,10 +29,10 @@ import TaskList from "./components/task-list.jsx";
 export default function App() {
 
 
-    useEffect(() => {
+    /*useEffect(() => {
         document.body.classList.add(...["bg-white","dark:bg-gray-900","antialiased"]) ;
         //document.body.classList.add("dark:bg-slate-900") ;
-    })
+    })*/
 
     return (
         <>
