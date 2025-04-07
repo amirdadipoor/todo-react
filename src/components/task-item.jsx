@@ -1,6 +1,6 @@
 
 
-export default function TaskItem(task , deleteTask , toggleTaskState , editTaskTitle) {
+export default function TaskItem({task, deleteTask, toggleTaskState, editTaskTitle}) {
     //console.log(state.state)
     return (
         <>
@@ -16,7 +16,7 @@ export default function TaskItem(task , deleteTask , toggleTaskState , editTaskT
                                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"  clipRule="evenodd" />
                             </svg>
                     }
-                    <span className={task?.done ? "ml-3 flex-1 whitespace-nowrap text-gray-400 line-through decoration-gray-300" : "ml-3 flex-1 whitespace-nowrap text-gray-500 dark:text-white"}>{task?.taskName}</span>
+                    <span className={task?.done ? "ml-3 flex-1 whitespace-nowrap text-gray-400 line-through decoration-gray-300" : "ml-3 flex-1 whitespace-nowrap text-gray-500 dark:text-white"}>{task?.task}</span>
                     <span className="ml-3 inline-flex items-center justify-center rounded bg-gray-200 px-2 py-0.5 text-xs font-medium text-gray-500 dark:bg-gray-700 dark:text-gray-400">Popular</span>
                     <span className="ml-3 inline-flex items-center justify-center rounded bg-gray-200 px-2 py-0.5 text-xs font-medium text-gray-500 dark:bg-gray-700 dark:text-gray-400">Popular</span>
                 </a>

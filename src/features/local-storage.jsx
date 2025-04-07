@@ -6,5 +6,5 @@ export function getTasksFromLocalStorage() {
 }
 
 export function storeTasksToLocalStorage(data = [] ) {
-    localStorage.setItem(this.storageName, JSON.stringify(data));
+    localStorage.setItem(storageName, JSON.stringify(data));
 }

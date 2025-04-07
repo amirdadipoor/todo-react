@@ -8,10 +8,16 @@ export default function TaskList() {
     //console.log(loadTasksFromLocalStorage())
     const [tasks, setTasks] = useState(getTasksFromLocalStorage());
 
+    const addNewTaskItem = (task) => {
+        let newTask = [...tasks, task];
+        setTasks(newTask);
+        storeTasksToLocalStorage(newTask);
+    }
+
     return (
         <Card className="min-w-2/4">
 
-            <InputSection />
+            <InputSection addNewTask={addNewTaskItem}  />
 
             <ul className="my-4 space-y-3">
 
