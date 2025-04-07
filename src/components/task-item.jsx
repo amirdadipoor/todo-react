@@ -42,6 +42,37 @@ export default function TaskItem({task, deleteTask, toggleTaskState, editTaskTit
         });
     }
 
+    const handleRequestEditTask = () => {
+        let appTheme = localStorage.getItem("theme")
+        withReactContent(Swal).fire({
+            title: "Enter New Task name",
+            input: "text",
+            inputPlaceholder: "Type your new task name here...",
+            background: appTheme === "dark" ? '#1f2937' : '#ffffff', // dark gray (matches Tailwind dark)
+            showCancelButton: true,
+            confirmButtonText: "Submit",
+            inputValue: task.task,
+            preConfirm: (value) => {
+                if (!value || value === task.task) {
+                    withReactContent(Swal).showValidationMessage("You need to enter something!");
+                }
+                return value;
+            }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                editTaskTitle(task , result.value )
+                withReactContent(Swal).fire({
+                    icon: "success",
+                    title: "Task Updated",
+                    timer: 3000,
+                    background: appTheme === "dark" ? '#1f2937' : '#ffffff', // dark gray (matches Tailwind dark)
+                    showCloseButton: true,
+                    timerProgressBar: true,
+                });
+            }
+        });
+    }
+
     return (
         <>
             <li >
@@ -57,7 +88,7 @@ export default function TaskItem({task, deleteTask, toggleTaskState, editTaskTit
                             </svg>
                     }
                     <span className={task?.done ? "ml-3 flex-1 whitespace-nowrap text-gray-400 line-through decoration-gray-300" : "ml-3 flex-1 whitespace-nowrap text-gray-500 dark:text-white"} onClick={handleClickToggle}>{task?.task}</span>
-                    <span className="ml-3 inline-flex items-center justify-center rounded bg-gray-200 px-2 py-0.5 text-xs font-medium text-gray-500 dark:bg-gray-700 dark:text-gray-400">Popular</span>
+                    <span className="ml-3 inline-flex items-center justify-center rounded bg-yellow-300 px-2 py-0.5 text-xs font-medium text-yellow-500 dark:bg-amber-300 dark:text-amber-500" onClick={handleRequestEditTask}>Edit</span>
                     <span className="ml-3 inline-flex items-center justify-center rounded bg-red-500 px-2 py-0.5 text-xs font-medium text-red-900 dark:bg-red-400 dark:text-red-700" onClick={handleRequestDeleteTask }>Delete</span>
                 </a>
             </li>

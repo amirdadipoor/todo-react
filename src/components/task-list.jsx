@@ -37,6 +37,19 @@ export default function TaskList() {
         storeTasksToLocalStorage(newTask);
     }
 
+    const handleEditTaskRequest = (task , newTastName) => {
+        //console.log(task, newTastName);
+        let newTask = tasks.map( (taskItem) => {
+            if (taskItem.id === task.id) {
+                taskItem.task = newTastName;
+            }
+            return taskItem;
+        })
+        //console.log(newTask);
+        setTasks(newTask);
+        storeTasksToLocalStorage(newTask);
+    }
+
     return (
         <>
             <Card className="min-w-2/4">
@@ -45,7 +58,7 @@ export default function TaskList() {
 
                 <ul className="my-4 space-y-3">
 
-                    { tasks.map((task, index) => <TaskItem key={index} task={task} deleteTask={handleDeleteTaskRequest} toggleTaskState={toggleTodoStatusHandler} editTaskTitle={null} /> )}
+                    { tasks.map((task, index) => <TaskItem key={index} task={task} deleteTask={handleDeleteTaskRequest} toggleTaskState={toggleTodoStatusHandler} editTaskTitle={handleEditTaskRequest} /> )}
 
                 </ul>
 
