@@ -8,7 +8,8 @@ import {useState} from "react";
 export default function TaskList() {
     //console.log(loadTasksFromLocalStorage())
     const [tasks, setTasks] = useState(getTasksFromLocalStorage());
-    const [openDeleteModal, setOpenDeleteModal] = useState(false);
+
+
 
     const addNewTaskItem = (task) => {
         let newTask = [...tasks, task];
@@ -28,7 +29,12 @@ export default function TaskList() {
     }
 
     const handleDeleteTaskRequest = (task) => {
-        console.log(task);
+        //console.log(task);
+        let newTask = tasks.filter((taskItem) => {
+            return taskItem.id !== task.id
+        });
+        setTasks(newTask);
+        storeTasksToLocalStorage(newTask);
     }
 
     return (
@@ -47,7 +53,7 @@ export default function TaskList() {
 
             </Card>
 
-            <ConfirmModal isOpen={openDeleteModal}/>
+
         </>
     )
 }
