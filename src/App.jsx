@@ -19,7 +19,7 @@ import {
 import { ThemeConfig } from "flowbite-react";
 import ThemeToggle from "./components/themes/theme-toggle.jsx";*/
 import { useEffect } from 'react';
-//import ConfirmModal from "./components/confirm-modal.jsx";
+
 import AppNavbar from "./components/app-navbar.jsx";
 import TaskList from "./components/task-list.jsx";
 //import {useState} from "react";
@@ -41,7 +41,7 @@ export default function App() {
             <div className="flex justify-center items-center h-screen bg-gray-100 dark:bg-gray-900 antialiased">
                 <TaskList />
             </div>
-            {/*<ConfirmModal />*/}
+
         </>
     );
 }

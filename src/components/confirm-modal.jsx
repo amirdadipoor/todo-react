@@ -4,12 +4,12 @@ import { Button, Modal, ModalBody, ModalHeader } from "flowbite-react";
 import { useState } from "react";
 // import { HiOutlineExclamationCircle } from "react-icons/hi";
 
-export default function ConfirmModal() {
-    const [openModal, setOpenModal] = useState(true);
+export default function ConfirmModal({isOpen}) {
+    const [openModal, setOpenModal] = useState(isOpen);
 
     return (
         <>
-            <Button onClick={() => setOpenModal(true)}>Toggle modal</Button>
+            {/*<Button onClick={() => setOpenModal(true)}>Toggle modal</Button>*/}
             <Modal show={openModal} size="md" onClose={() => setOpenModal(false)} popup>
                 <ModalHeader />
                 <ModalBody>
