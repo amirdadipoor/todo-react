@@ -1,7 +1,7 @@
 
 let storageName = "ApplicationStorage";
 
-export function loadTasksFromLocalStorage() {
+export function getTasksFromLocalStorage() {
     return JSON.parse(localStorage.getItem(storageName)) || [] ;
 }
 
