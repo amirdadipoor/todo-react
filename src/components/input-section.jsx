@@ -18,15 +18,15 @@ export default function InputSection({addNewTask}) {
     }
 
     const saveAndShowNewTask = (todoText) => {
-        console.log(todoText)
+        //console.log(todoText)
         const newTask = { id:  uuidv4() , task : todoText, done: false };
-        console.log(newTask);
-        console.log(addNewTask);
+        //console.log(newTask);
+        //console.log(addNewTask);
         addNewTask(newTask);
     }
 
     const showInvalidTaskInputError = ( ) => {
-        console.log( "Please enter valid task name & try again  !" )
+        //console.log( "Please enter valid task name & try again  !" )
     }
 
     return (
