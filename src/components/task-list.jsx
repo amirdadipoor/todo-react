@@ -4,10 +4,13 @@ import TaskItem from "./task-item.jsx";
 import ConfirmModal from "./confirm-modal.jsx";
 import {getTasksFromLocalStorage , storeTasksToLocalStorage} from "./../features/local-storage.jsx"
 import {useState} from "react";
+import useApi from "./hooks/useApi.jsx";
 
 export default function TaskList() {
     //console.log(loadTasksFromLocalStorage())
-    const [tasks, setTasks] = useState(getTasksFromLocalStorage());
+    //const [tasks, setTasks] = useState(getTasksFromLocalStorage());
+    const [tasks , setTasks , error , setError] = useApi();
+    console.log(tasks);
 
 
 
