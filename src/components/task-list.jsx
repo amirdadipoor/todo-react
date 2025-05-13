@@ -14,9 +14,21 @@ export default function TaskList() {
     //const [tasks , setTasks , error , setError] = useApi();
     //console.log(tasks);
 
-    useEffect(() => {
+    useEffect(async () => {
 
-    }, []);dadda
+        try {
+            let res = await fetch("http://localhost:3000/api/v1/tasks" , {
+                method: "GET"
+            });
+
+            let tasks = await res.json();
+            setTasks(tasks);
+
+        }catch (error) {
+            console.log(error);
+        }
+
+    }, []);
 
 
     const addNewTaskItem = (task) => {
