@@ -19,7 +19,7 @@ export default function InputSection({addNewTask}) {
 
     const saveAndShowNewTask = (todoText) => {
         //console.log(todoText)
-        const newTask = { id:  uuidv4() , task : todoText, done: false };
+        const newTask = {  task : todoText, done: false };
         //console.log(newTask);
         //console.log(addNewTask);
         addNewTask(newTask);
