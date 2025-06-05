@@ -7,12 +7,12 @@ import {useEffect, useState} from "react";
 import useApi from "./hooks/useApi.jsx";
 
 export default function TaskList() {
-    //console.log(loadTasksFromLocalStorage())
+
     //const [tasks, setTasks] = useState(getTasksFromLocalStorage());
     const [tasks , setTasks] = useState([]);
 
     //const [tasks , setTasks , error , setError] = useApi();
-    //console.log(tasks);
+
 
     useEffect( () => {
         loadTasks()
@@ -24,7 +24,6 @@ export default function TaskList() {
         let myNewTask = await createNewTaskIntoAPI(task)
         let newTask = [...tasks, myNewTask];
         setTasks(newTask);
-        //storeTasksToLocalStorage(newTask);
     }
 
     const toggleTodoStatusHandler = async (task) => {
@@ -50,7 +49,6 @@ export default function TaskList() {
             return taskItem.id !== task.id
         });
         setTasks(newTask);
-        //storeTasksToLocalStorage(newTask);
     }
 
     const handleEditTaskRequest = async (task , newTaskName) => {
@@ -66,7 +64,6 @@ export default function TaskList() {
         })
 
         setTasks(newTask);
-        //storeTasksToLocalStorage(newTask);
     }
 
     const createNewTaskIntoAPI = async (task) => {
@@ -113,7 +110,7 @@ export default function TaskList() {
             return false;
 
         } catch (error) {
-            console.log(error);
+            // console.log(error);
             return false;
         }
     }
@@ -123,9 +120,7 @@ export default function TaskList() {
             let res = await fetch("http://localhost:3000/api/v1/tasks" , {
                 method: "GET"
             });
-
             let tasks = await res.json();
-            //console.log(tasks);
             setTasks(tasks);
 
         }catch (error) {
@@ -136,20 +131,11 @@ export default function TaskList() {
     return (
         <>
             <Card className="min-w-2/4">
-
                 <InputSection addNewTask={addNewTaskItem}  />
-
                 <ul className="my-4 space-y-3">
-
                     { tasks.map((task, index) => <TaskItem key={index} task={task} deleteTask={handleDeleteTaskRequest} toggleTaskState={toggleTodoStatusHandler} editTaskTitle={handleEditTaskRequest} /> )}
-
                 </ul>
-
-
-
             </Card>
-
-
         </>
     )
 }
