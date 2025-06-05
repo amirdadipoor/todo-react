@@ -26,22 +26,22 @@ export const deleteTask = async (task) => {
 
 export const updateTask = async (task) => {
     const payload = adaptTaskToApi(task);
-    const response = await fetchApi(`/tasks/${task.id}` , {
+    const response = await fetchApi(`/tasks/${task.id}` , getConfig({
         method: 'PUT',
         body: payload
-    })
-    if (!response.ok) {
-        const error = await response.json();
-        throw new Error( `${response.status}` + ' ' + `${error.message}` || 'API request failed');
-    }
-    return response.json();
+    }));
+    return response;
 }
 
 const fetchApi = async (endpoint ,config) => {
-    const response = await fetch(`${BASE_URL}${endpoint}`, config);
-    if (!response.ok) {
-        const error = await response.json();
-        throw new Error( `${response.status}` + ' ' + `${error.message}` || 'API request failed');
+    try {
+        const response = await fetch(`${BASE_URL}${endpoint}`, config);
+        if (!response.ok) {
+            const error = await response.json();
+            throw new Error( `${response.status}` + ' ' + `${error.message}` || 'API request failed');
+        }
+        return response.json();
+    }catch(err) {
+        return null;
     }
-    return response.json();
 }
